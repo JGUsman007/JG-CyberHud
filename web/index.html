@@ -1,0 +1,197 @@
+<html>
+
+<head>
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/a412d17519.js" crossorigin="anonymous"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="location">
+            <i class="fas fa-location-arrow" id="location-icon" style="color:#fe615c;"></i>
+            <div class="locationtext">LITTLE SOULE</div>
+        </div>
+        <div class="radar-border">
+
+            <div class="square">
+                <div class="square-dot"></div>
+                <div class="square-dot-left"></div>
+                <div class="square-dot-right"></div>
+            </div>
+
+            <div class="circle"></div>
+
+
+        </div>
+
+
+
+        <div class="status-box">
+
+            <div>
+
+                <div class="stat-back-health">
+                    <i class="fas fa-heart"
+                        style="color:#fe615c;text-shadow: rgba(0, 0, 0, 0.676) 1px 0 10px;font-size: .8vw;"></i>
+                    <div class="stat-back">
+                        <div class="stat-value-healht" id="health"></div>
+                    </div>
+                </div>
+
+                <div class="stat-back-armour">
+                    <i class="fas fa-shield-alt"
+                        style="color:#3595bd;text-shadow: rgba(0, 0, 0, 0.676) 1px 0 10px; font-size: .8vw;"></i>
+                    <div class="stat-back">
+                        <div class="stat-value-armour" id="armour"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+                <div class="stat-back-hunger">
+                    <i class="fas fa-hamburger"
+                        style="color: #f8e53b;text-shadow: rgba(0, 0, 0, 0.676) 1px 0 10px;font-size: .8vw;"></i>
+                    <div class="stat-back">
+                        <div class="stat-value-hunger" id="hunger"></div>
+                    </div>
+                </div>
+
+                <div class="stat-back-thirst">
+                    <i class="fas fa-glass-whiskey"
+                        style="color:#3becf8;text-shadow: rgba(0, 0, 0, 0.676) 1px 0 10px;font-size: .8vw;"></i>
+                    <div class="stat-back">
+                        <div class="stat-value-thirst" id="thirst"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="speedometer-container">
+
+
+            <div class="speedometer-sec">
+                <img id="seatbelt_icon" src="img/seatbelt_icon.png" style="width: 1.3vw;">
+            </div>
+
+
+            <div class="speedometer-middle">
+                <div class="bars1" id="enginethrotle"></div>
+                <div class="bars2" id="enginethrotle"></div>
+                <div class="bars3" id="enginethrotle"></div>
+                <div class="bars4" id="enginethrotle"></div>
+                <div class="bars5" id="enginethrotle"></div>
+                <div class="bars6" id="enginethrotle"></div>
+                <div class="bars7" id="enginethrotle"></div>
+                <div class="bars8" id="enginethrotle"></div>
+                <div class="bars9" id="enginethrotle"></div>
+                <div class="bars10" id="enginethrotle"></div>
+                <div class="bars11" id="enginethrotle"></div>
+                <div class="bars12" id="enginethrotle"></div>
+                <div class="bars13" id="enginethrotle"></div>
+                <div class="bars14" id="enginethrotle"></div>
+                <div class="bars15" id="enginethrotle"></div>
+                <div class="bars16" id="enginethrotle"></div>
+                <div class="bars17" id="enginethrotle"></div>
+                <div class="bars18" id="enginethrotle"></div>
+                <div class="veh-speed">120</div>
+                <div class="bars-border">
+                    <div class="bars-border-right"></div>
+                    <div class="bars-border-bottom"></div>
+                </div>
+            </div>
+
+            <div class="speedometer-gear">
+                <p class="gear1" id="geartext">1</p>
+                <p class="gear2" id="geartext">2</p>
+                <p class="gear3" id="geartext">3</p>
+                <p class="gear4" id="geartext">4</p>
+                <p class="gear5" id="geartext">5</p>
+                <p class="gear6" id="geartext">6</p>
+            </div>
+
+            <div class="speedometer-fuel">
+                <div class="fuelbars1" id="fuellevel"></div>
+                <div class="fuelbars2" id="fuellevel"></div>
+                <div class="fuelbars3" id="fuellevel"></div>
+                <div class="fuelbars4" id="fuellevel"></div>
+                <div class="fuelbars5" id="fuellevel"></div>
+                <div class="fuelbars6" id="fuellevel"></div>
+                <div class="fuelbars7" id="fuellevel"></div>
+                <div class="fuelbars8" id="fuellevel"></div>
+                <div class="fuelbars9" id="fuellevel"></div>
+                <div class="fuelbars10" id="fuellevel"></div>
+                <div class="fuelbars11" id="fuellevel"></div>
+                <div class="fuelbars12" id="fuellevel"></div>
+                <div class="fuelbars13" id="fuellevel"></div>
+                <div class="fuelbars14" id="fuellevel"></div>
+                <div class="fuelbars15" id="fuellevel"></div>
+                <div class="fuelbars16" id="fuellevel"></div>
+                <div class="fuelbars17" id="fuellevel"></div>
+                <div class="fuelbars18" id="fuellevel"></div>
+                <i class="fas fa-gas-pump" id="fuelicon"
+                    style="color:#3becf8;text-shadow: rgba(0, 0, 0, 0.676) 1px 0 10px;font-size: .8vw;"></i>
+            </div>
+        </div>
+
+
+        <div class="info-container">
+            <div class="info-singlecont">
+                <div class="info-text-id" id="id">2</div>
+                <i class="fas fa-user" id="info-icon-id"></i>
+                <div class="logo">Cyberpunk</div>
+            </div>
+
+            <div class="info-singlecont">
+                <div class="info-text" id="bank">Loading...</div>
+                <i class="fas fa-credit-card" id="info-icon"></i>
+
+            </div>
+
+            <div class="info-singlecont">
+                <div class="info-text" id="money">Loading...</div>
+                <i class="fas fa-money-bill" id="info-icon"></i>
+
+            </div>
+
+            <div class="info-singlecont">
+                <div class="info-text-red" id="blackmoney">Loading...</div>
+                <i class="fas fa-money-bill" id="info-icon-red"></i>
+
+            </div>
+
+
+            <div class="info-singlecont">
+                <div class="job-bars-border">
+                    <div class="job-border-top"></div>
+                    <div class="job-border-right"></div>
+                    <div class="job-border-bottom"></div>
+                    <div class="job-border-bar"></div>
+                    <div class="job-border-dot"></div>
+                </div>
+                <div id="job">Loading...</div>
+                <div id="grade">Loading...</div>
+            </div>
+
+        </div>
+
+
+        <div class="ammo-container">
+            <p class="ammo1">25</p>
+            <p class="ammo2">40</p>
+            <div class="ammo-line"></div>
+            <div class="ammo-line1"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
