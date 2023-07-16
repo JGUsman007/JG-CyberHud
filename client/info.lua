@@ -1,6 +1,7 @@
-ESX = exports['es_extended']:getSharedObject()
-
-
+local Core = exports['cs_lib']:GetLib()
+Citizen.CreateThread(function()
+    while not Core.FrameworkIsReady() do Wait(1000); end
+end)
 
 local cash, bank, blackmoney
 
@@ -9,16 +10,9 @@ local function UpdateAccounts(accounts)
     if accounts == nil then return end
 
     local tempCash, tempBank, tempBlackMoney
-
-    for _, data in pairs(accounts) do
-        if data.name == 'bank' then
-            tempBank = data.money
-        elseif data.name == 'money' then
-            tempCash = data.money
-        elseif data.name == 'black_money' then
-            tempBlackMoney = data.money
-        end
-    end
+    tempBank = Core.GetAccount('bank')
+    tempCash = Core.GetAccount('cash')
+    tempBlackMoney = Core.GetAccount('black_money') or Core.GetAccount('crypto')
 
     return tempCash, tempBank, tempBlackMoney
 end
@@ -30,14 +24,13 @@ local function InfoThread()
         local playerServerId = cache.serverId
 
         while true do
-
             SendNUIMessage({
                 type = 'info',
                 bank = ("$" .. bank),
                 money = ("$" .. cash),
                 blackmoney = ("$" .. blackmoney),
-                job = string.upper(ESX.PlayerData.job.label),
-                grade = string.upper(ESX.PlayerData.job.grade_label),
+                job = string.upper(Core.GetJob()),
+                grade = string.upper(Core.GetGrade()),
                 id = string.upper(playerServerId)
             })
 
@@ -46,36 +39,15 @@ local function InfoThread()
     end)
 end
 
-
-
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(playerData)
+AddEventHandler('playerSpawned', function()
     Wait(2000)
-    cash, bank, blackmoney = UpdateAccounts(playerData.accounts)
-    ESX.PlayerData = ESX.GetPlayerData()
+    cash, bank, blackmoney = UpdateAccounts(Core.GetAccounts())
     InfoThread()
-end)
-
-RegisterNetEvent('esx:setAccountMoney', function(account)
-    if account.name == 'money' then
-        cash = account.money
-    elseif account.name == 'bank' then
-        bank = account.money
-    elseif account.name == 'black_money' then
-        blackmoney = account.money
-    end
-end)
-
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
-    ESX.PlayerData.job = job
 end)
 
 AddEventHandler('onResourceStart', function (resName)
     if GetCurrentResourceName() ~= resName then return end
     Wait(1000)
-    ESX.PlayerData = ESX.GetPlayerData()
-    cash, bank, blackmoney = UpdateAccounts(ESX.PlayerData.accounts)
-    print(blackmoney)
+    cash, bank, blackmoney = UpdateAccounts(Core.GetAccounts())
     InfoThread()
 end)

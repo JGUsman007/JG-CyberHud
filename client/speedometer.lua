@@ -1,11 +1,6 @@
-ESX = exports['es_extended']:getSharedObject()
-local pausemenuactive,vehicle
+local vehicle
 local Seatbeltstate = false
 SetFlyThroughWindscreenParams(15.0, 20.0, 17.0, -500.0)
-AddEventHandler('esx:pauseMenuActive', function(state)
-    pausemenuactive = not state
-end)
-
 
 
 local function togglespeedometer(state)

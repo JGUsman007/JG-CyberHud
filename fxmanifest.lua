@@ -25,4 +25,6 @@ files{
     'web/font/*'
 }
 
-
+dependencies {
+	'cs_lib'
+}

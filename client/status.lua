@@ -1,7 +1,3 @@
-ESX = exports['es_extended']:getSharedObject()
-
-
-
 local function minimap(status)
     Wait(1000)
 
@@ -67,15 +63,9 @@ local function minimap(status)
     end
 end
 
-
-
 local function loadsettings()
     minimap(Config.radartype)
 end
-
-
-
-
 
 CreateThread( function ()
     while true do
@@ -90,7 +80,6 @@ CreateThread( function ()
         Wait(1500)
     end
 end)
-
 
 Citizen.CreateThread( function()
     while true do
@@ -139,18 +128,20 @@ local function showHud()
     })
 end
 
-
-AddEventHandler('esx:pauseMenuActive', function(state)
-    local pausemenuactive = not state
-    SendNUIMessage({
-        type = 'pausemenu',
-        show = pausemenuactive
-    })
+Citizen.CreateThread(function()
+    while true do
+        sleep = 500
+        Citizen.Wait(sleep)
+            SendNUIMessage({
+                type = 'pausemenu',
+                show = Core.PauseMenu()
+            })
+    end
 end)
 
 
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(playerData)
+
+AddEventHandler('playerSpawned', function()
     loadsettings()
     Wait(500)
     showHud()
@@ -160,7 +151,7 @@ AddEventHandler('onResourceStart', function(resourceName)
     loadsettings()
     Wait(500)
     showHud()
-  end)
+end)
 
 
 
