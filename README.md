@@ -1,7 +1,7 @@
 # JG-CyberHud
 
 # Dependencies
-- [cs_lib](https://github.com/Dom-in/cs_lib](https://github.com/CScripts-Network/cs_lib)
+- [cs_lib](https://github.com/CScripts-Network/cs_lib)
 
 # Join discord server
 ## 👉 Join the community
