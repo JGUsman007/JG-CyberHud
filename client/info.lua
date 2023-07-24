@@ -1,4 +1,4 @@
-local Core = exports['cs_lib']:GetLib()
+Core = exports['cs_lib']:GetLib()
 Citizen.CreateThread(function()
     while not Core.FrameworkIsReady() do Wait(1000); end
 end)
